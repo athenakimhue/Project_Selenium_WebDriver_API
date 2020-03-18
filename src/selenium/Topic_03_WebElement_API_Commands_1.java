@@ -74,8 +74,6 @@ public class Topic_03_WebElement_API_Commands_1 {
 		//submit- hoạt động như click(). chỉ dc sử dụng với form.
 		driver.findElement(By.xpath("//input[@id='email']")).submit();
 		sleepInSecond(5);
-		
-		
 	}
 
 	@AfterClass
