@@ -1,0 +1,26 @@
+
+01. Sự khác nhau giữa TextArea- Textbox
+	+ Textbox   - nhập cùng 1 dòng
+	+ TextArea	- có thể nhập xuống dòng 
+	-> Eg: String address = "141 Chien Thang /n Tan Trieu- Thanh Tri - Ha Noi/n VietNam"
+
+02. GetText- GetAttribite
+	+ GetText 		- Lấy dữ liệu nằm trong thẻ : <input>My Text</input>
+	+ GetAttribite	- Lấy dữu liệu nằm trong attribute: <input id='ID_01' value='My Text'></input>
+	-> Eg: driver.findElement(By.id('#ID_01').getAttribute('value');
+	
+03. Kỹ thuật lấy (Xpath Axes)
+	+ Từ cố định(Anh) 	->lấy xuống ko cố định(Em) 	: following-sibling::
+	+ Từ cố định Em				->lấy lên Anh				: preceding-sibling::
+	-> Eg:  //td[text()='User ID:']/following-sibling::td
+
+04. Căn chỉnh cho đẹp : Ctrl+Shift+F 
+	Bôi đen : Shift + 4 phím di chuyển
+	Copy duplicate: Ctr+ Alt + phím down
+
+05. Chrome Headless:
+	ChromeOptions options = new ChromeOptions();
+	options.addArguments("headless");
+	options.addArguments("window-size=1366x768");
+	driver = new ChromeDriver(options);
+
