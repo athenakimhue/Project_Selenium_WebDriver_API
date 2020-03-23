@@ -11,7 +11,7 @@
 	
 03. Kỹ thuật lấy (Xpath Axes)
 	+ Từ cố định(Anh) 	->lấy xuống ko cố định(Em) 	: following-sibling::
-	+ Từ cố định Em				->lấy lên Anh				: preceding-sibling::
+	+ Từ cố định Em		->lấy lên Anh				: preceding-sibling::
 	-> Eg:  //td[text()='User ID:']/following-sibling::td
 
 04. Căn chỉnh cho đẹp : Ctrl+Shift+F 
@@ -23,4 +23,51 @@
 	options.addArguments("headless");
 	options.addArguments("window-size=1366x768");
 	driver = new ChromeDriver(options);
+
+06. Default Dropdown List
+	6.1. Use: Class - Select 
+			Select select;
+			select = new Select(find(By.xpath("//select[@id='job1']")));
+	-----------------------------------------
+	<select id="job1" name="user_job1">
+	        <option value="automation">Automation Testing</option>
+	        <option value="manual">Manual Testing</option>
+	        <option value="website">Adhoc Testing</option>
+	        <option value="mobile">Mobile Testing</option>
+	        <option value="desktop">Desktop Testing</option>
+	        <option value="security">Security Testing</option>
+	        <option value="perfomance">Perfomance Testing</option>
+	        <option value="intergration">Intergration Testing</option>
+	        <option value="unit">Unit Testing</option>
+	        <option value="function" xpath="1">Functional UI Testing</option>
+	</select>
+	-----------------------------------------
+	6.2. Co 3 cach chon:(Nen dung C3)
+			C1: select.selectByIndex(1); 						// Base on Index(0->n)
+			C2: select.selectByValue("manual");					// Base on Value		
+			C3: select.selectByVisibleText("Manual Testing"); 	//Base on Text
+			
+	6.3. Multiple Select.
+			select.deselectAll(); 								// Bo chon tat ca gia tri
+			Assert.assertTrue(select.isMultiple()); 			// Kiem tra co phai Multiple ko?
+	6.4. Cac cau lenh khac.
+			List<WebElement> itemSelected = select.getAllSelectedOptions();
+			System.out.println(itemSelected.size());			// So luong items da duoc chon.
+			
+			List<WebElement> allItems = select.getOptions();
+			System.out.println(allItems.size());				//So luong tat ca items.
+			for ( WebElement list : allItems){
+				System.out.println(list.getText());
+			}
+			
+			select.getFirstSelectedOption().getText();			//Lay ra gia tri Text cua item da chon.
+	
+07. Random
+	public int numberRandom() {
+		Random rand= new Random();
+		int number=rand.nextInt(2000);
+		return number;
+		}
+		
+08. Custom Dropdown List
 
