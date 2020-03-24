@@ -65,6 +65,7 @@ public class Topic_06_Handle_Custom_Dropdown_List {
 		
 	}
 
+	@Test
 	public void selectItemInCustomDropdown(String parentXpath, String childXpath, String expectedItem) throws Exception {
 		//Click vao the chua all item de no dropdown ra
 		driver.findElement(By.xpath(parentXpath)).click();
@@ -90,11 +91,16 @@ public class Topic_06_Handle_Custom_Dropdown_List {
 			}
 		}		
 	}
+	@Test
 	public boolean verifyItemSelected(String xpathLocator) {
 		boolean status=driver.findElement(By.xpath(xpathLocator)).isDisplayed();
 		System.out.println("Status : "+status);
 		if(status) return true;
 		else return false;
+	}
+
+	public String getTextElement(String xpathLocator) {
+		return driver.findElement(By.xpath(xpathLocator)).getText();
 	}
 //	@AfterClass
 //	public void afterClass() {
